@@ -16,6 +16,9 @@ export class MoviesComponent implements OnInit {
   constructor(private movieService: MovieService) {
     this.movies = this.movieService.getMovies();
   }
+  ngOnInit(): void {
+    this.movies = this.movieService.getMovies();
+  }
 
   movies: Movie[];
 
@@ -23,8 +26,5 @@ export class MoviesComponent implements OnInit {
     this.movies = this.movieService.getMovies();
   }
 
-  ngOnInit(): void {
-    this.movies = this.movieService.getMovies();
-  }
 
 }
