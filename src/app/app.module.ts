@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatBadgeModule} from "@angular/material/badge";
 import {MatIconModule} from "@angular/material/icon";
+import {MoviesComponent} from "./components/movies/movies.component";
+import {MovieComponent} from "./components/movie/movie.component";
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import {MatIconModule} from "@angular/material/icon";
     SearchComponent,
     AddComponent,
     RateMovieComponent,
+    MoviesComponent,
+    MovieComponent
   ],
   imports: [BrowserModule,
     AppRoutingModule,
