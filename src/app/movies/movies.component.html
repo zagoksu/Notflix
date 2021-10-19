@@ -1,0 +1,28 @@
+<p>Movies Component</p>
+
+<div class="wrapper">
+  
+    <!-- MAIN CONTAINER -->
+    <section class="main-container" >
+      <div class="location" id="home">
+          <h1 id="home">Popular on Notflix</h1>
+          <div class="box">
+            <!-- <app-movie></app-movie> -->
+
+            <app-movie *ngFor="let m of movies" [m]="m" ></app-movie>
+            
+     </div>
+      </div>
+      
+    </section>
+    <!-- END OF MAIN CONTAINER -->
+  </div>
+
+
+<!-- <div class="gallery__item">
+    <ng-container *ngFor="let img of movies">
+    <img
+        src="{{img.imgPath}}"
+        alt="Img" style="width: 300px;">
+    </ng-container>
+</div> -->
