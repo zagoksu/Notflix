@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { IMovie } from 'src/interfaces/movie';
+import { IMovie } from 'src/app/models/movie';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +18,7 @@ export class MovieService {
       catchError(this.handleError)
     );
   }
+
   private handleError(err: HttpErrorResponse): Observable<never> {
     let errorMessage = '';
     if (err.error instanceof ErrorEvent) {

@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { IMovie } from '../../interfaces/movie';
-import { MovieService } from '../services/movie.service';
+import { IMovie } from '../../models/movie';
+import { MovieService } from '../../services/movie.service';
 
 @Component({
   selector: 'app-search',
@@ -15,6 +15,7 @@ export class SearchComponent implements OnInit, OnDestroy {
   private _listFilter: string = '';
   errorMessage: string = '';
   sub!: Subscription;
+
   get listFilter(): string {
     return this._listFilter;
   }
