@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+import { MoviesComponent } from './components/movies/movies.component';
+import { MovieComponent } from './components/movie/movie.component';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './components/search/search.component';
 import { AddComponent } from './components/add/add.component';
@@ -18,6 +20,8 @@ import {MatIconModule} from "@angular/material/icon";
     SearchComponent,
     AddComponent,
     RateMovieComponent,
+    MovieComponent,
+    MoviesComponent
   ],
   imports: [BrowserModule,
     AppRoutingModule,
