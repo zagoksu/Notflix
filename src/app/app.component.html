@@ -31,34 +31,39 @@
           <img src="assets/notflix.png" alt="logo">
         </a>
         <ul>
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">TV Shows</a></li>
-          <li><a href="#">Movies</a></li>
-          <li><a href="#">Latest</a></li>
-          <li><a href="#">My List</a></li>
+          <li class="active"><a routerLink="">Home</a></li>
+          <li><a routerLink="">TV Shows</a></li>
+          <li><a routerLink="movies">Movies</a></li>
+          <li><a routerLink="#">Genres</a></li>
+          <li><a routerLink="#">My List</a></li>
         </ul>
       </div>
 
       <div class="header__right">
         <ul>
+
           <li><a href="#"><app-search (filterEvent)="performedFilter($event)"></app-search><mat-icon>search</mat-icon></a></li>
           <li><a href="#">Children</a></li>
           <li><a href="#"><mat-icon>card_giftcard</mat-icon></a></li>
           <li><a href="#"><mat-icon>notifications</mat-icon></a></li>
           <li>
+
             <img src="https://occ-0-4345-3647.1.nflxso.net/dnm/api/v6/Z-WHgqd_TeJxSuha8aZ5WpyLcX8/AAAABRGTK96GBeqNw5zzYXnoa8oVjSjhuk7SuseuKTmgEKwpcCB59994UWb6wd7d1WONZOuzJwbLNpzG5Okfo4rSDLg.png?r=ee6"
                  alt="avatar">
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>  <!--HEADER MAIN ENDS HERE-->
 
   </div>
 
-  <div class="body" style="margin-top: 30rem;">
+  <div class="body" style="margin-top: 20rem;">
 
   </div>
 
+
 <app-movies [movies]="filteredMovies" ></app-movies>
 
+
+<router-outlet></router-outlet>
 </div>
