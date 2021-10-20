@@ -1,20 +1,6 @@
-<div class="wrapper">
-
-  <!-- MAIN CONTAINER -->
-  <section class="main-container">
-    <div class="location" id="home">
-      <h1 id="home">Popular on Notflix</h1>
-      <div class="box">
-        <!-- <app-movie></app-movie> -->
-
-
+<div id="moviesContainer">
         <app-movie *ngFor="let m of movies" [m]="m" (click)="onClick($event)"></app-movie>
-
-
-      </div>
-    </div>
-
-  </section>
-  <!-- END OF MAIN CONTAINER -->
 </div>
+
+
 

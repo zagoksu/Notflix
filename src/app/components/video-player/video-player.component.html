@@ -1,33 +1,54 @@
-<body>
-<div class="main-container">
-
-  <div class="ticket-container">
-    <div class="poster-container">
-      <iframe width="560" height="315" [src]="movie.videoUrl | safe" title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen></iframe>
-    </div>
-    <div class="ticket__content">
-
-      <h4 class="ticket__movie-title">{{movie.name}}</h4>
-      <p class="ticket__movie-slogan">{{movie.description}}</p>
-      <p class="ticket__current-price">{{movie.genre}}</p>
-      <p class="ticket__old-price"><a href="{{movie.imageUrl}}">Poster</a></p>
-      <p class="ticket__old-price"> Rating: {{movie.rating}}
-      </p>
-      <div id="rateContainer">
-        <app-rate-movie [rating]="movie.rating"
-                        (ratingClicked)='onRatingClicked($event)'>
-        </app-rate-movie>
-        <div id="rateEl">
-          <label>Rate it!</label>
-          <input [(ngModel)]="rating">
-          <button (click)="rateMovie()">Submit</button>
-        </div>
+<div id="detailContainer" class="card">
+  <iframe class="card-img-top" width="560" height="315" [src]="movie.videoUrl | safe" title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+  <div class="card-body">
+    <h5 class="card-title">{{movie.name}}</h5>
+    <p class="card-text">{{movie.genre}}</p>
+    <p class="card-text">{{movie.description}}</p>
+    <a href="{{movie.imageUrl}}" class="btn btn-outline-danger">Go poster</a>
+    <div id="rateContainer">
+      <app-rate-movie [rating]="movie.rating"
+                      (ratingClicked)='onRatingClicked($event)'>
+      </app-rate-movie>
+      <div id="rateEl">
+        <input placeholder="Rate it!" type="text" class="form-control" [(ngModel)]="rating">
+        <button class="btn btn-outline-danger" (click)="rateMovie()">Submit</button>
       </div>
     </div>
   </div>
-
 </div>
-</body>
+<!--<body>-->
+<!--<div class="main-container">-->
+
+<!--  <div class="ticket-container">-->
+<!--    <div class="poster-container">-->
+<!--      <iframe width="560" height="315" [src]="movie.videoUrl | safe" title="YouTube video player"-->
+<!--              frameborder="0"-->
+<!--              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"-->
+<!--              allowfullscreen></iframe>-->
+<!--    </div>-->
+<!--    <div class="ticket__content">-->
+
+<!--      <h4 class="ticket__movie-title">{{movie.name}}</h4>-->
+<!--      <p class="ticket__movie-slogan">{{movie.description}}</p>-->
+<!--      <p class="ticket__current-price">{{movie.genre}}</p>-->
+<!--      <p class="ticket__old-price"><a href="{{movie.imageUrl}}">Poster</a></p>-->
+<!--      <p class="ticket__old-price"> Rating: {{movie.rating}}-->
+<!--      </p>-->
+<!--      <div id="rateContainer">-->
+<!--        <app-rate-movie [rating]="movie.rating"-->
+<!--                        (ratingClicked)='onRatingClicked($event)'>-->
+<!--        </app-rate-movie>-->
+<!--        <div id="rateEl">-->
+<!--          <label>Rate it!</label>-->
+<!--          <input [(ngModel)]="rating">-->
+<!--          <button (click)="rateMovie()">Submit</button>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--</div>-->
+<!--</body>-->
