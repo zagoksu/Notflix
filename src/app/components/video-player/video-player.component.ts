@@ -1,12 +1,14 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 import {IMovie} from "../../models/movie";
+import {MovieService} from "../../services/movie.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-video-player',
   templateUrl: './video-player.component.html',
   styleUrls: ['./video-player.component.css']
 })
-export class VideoPlayerComponent implements OnInit {
+export class VideoPlayerComponent implements OnInit, OnChanges, OnDestroy {
   movie: IMovie = {
     "id": 1,
     "name": "John Wick",
@@ -16,8 +18,13 @@ export class VideoPlayerComponent implements OnInit {
     "imageUrl": "https://m.media-amazon.com/images/M/MV5BMTU2NjA1ODgzMF5BMl5BanBnXkFtZTgwMTM2MTI4MjE@._V1_.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=2AUmvWm5ZDQ"
   };
+  @Input() movieId: number = 0;
+  movies: IMovie[] = [];
+  rating:number=0;
+  latestMovie?: null | IMovie;
+  private movieSubscription?: Subscription;
 
-  constructor() {
+  constructor(private movieService: MovieService) {
   }
 
   onRatingClicked(message: string): void {
@@ -26,6 +33,38 @@ export class VideoPlayerComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.movieSubscription = this.movieService.getMovies().subscribe(
+      {
+        next: movies => {
+          this.movies = movies;
+          console.log("MM: " + this.movies)
+
+        },
+      })
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log("iiii: " + this.movieId)
+    this.movie = this.getMovieById(this.movieId)
+    console.log(this.movie)
+  }
+
+  ngOnDestroy(): void {
+    this.movieSubscription?.unsubscribe();
+  }
+
+  getMovieById(id: number) {
+    console.log("getMovieID: " + id)
+
+    let findedData = this.movies.find(i => i.id == id);
+    if (typeof findedData === 'undefined') {
+      console.log("hello")
+      return this.movie;
+    }
+    console.log("find: " + findedData)
+    return findedData;
+  }
+  rateMovie(){
+    this.movie.rating=this.rating;
+  }
 }

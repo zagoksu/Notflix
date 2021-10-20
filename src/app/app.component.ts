@@ -8,9 +8,14 @@ import {IMovie} from "./models/movie";
 })
 export class AppComponent {
   filteredMovies: IMovie[] = [];
+  movieId: number = 0;
 
   performedFilter(value: IMovie[]) {
     this.filteredMovies = value;
+  }
+
+  sendMovieId(value: number) {
+    this.movieId = value;
   }
 
   title = 'Notflix';

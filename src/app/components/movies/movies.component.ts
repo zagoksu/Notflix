@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MovieService} from '../../services/movie.service';
 // import { Movie } from 'movies.json';
 // import { movies } from './mock-movies';
@@ -13,6 +13,7 @@ declare var require: any;
 })
 export class MoviesComponent implements OnInit {
   @Input() movies: any;
+  @Output() movieIdEvent = new EventEmitter();
   movieSubscription: any;
 
   constructor(private movieService: MovieService) {
@@ -29,6 +30,14 @@ export class MoviesComponent implements OnInit {
       (movies) => {
         this.movies = movies;
       })
+  }
+
+  onClick(event: any) {
+    var target = event.target || event.srcElement || event.currentTarget;
+    var idAttr = target.attributes.id;
+    var value = idAttr.nodeValue;
+    this.movieIdEvent.emit(value)
+    console.log(value)
   }
 
 }
