@@ -62,8 +62,8 @@
   </div>
 
 
-<app-movies [movies]="filteredMovies"></app-movies>
-
+<app-movies [movies]="filteredMovies" (movieIdEvent)="sendMovieId($event)"></app-movies>
+<app-video-player *ngIf="movieId!==0" [movieId]="movieId"></app-video-player>
 
 <router-outlet></router-outlet>
 </div>

@@ -6,7 +6,7 @@
 }
 
 body {
-    background: #457fb4;
+    background: black;
     font-family: "Roboto", sans-serif;
     display: flex;
     height: 100vh;
@@ -18,10 +18,11 @@ body {
 }
 
 .main-container {
-    width: 270px;
-    height: 540px;
+    width:100%;
+    height: 100%;
     position: relative;
     margin: 0 20px;
+
 }
 
 .poster-container {
@@ -43,20 +44,20 @@ body {
 
 .ticket-container {
     background: #fff;
-    width: 600px;
-    height: 500px;
+    width: 80vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     border-radius: 5px;
     position: absolute;
-    top: 20px;
+    padding: 10px;
     box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
 }
 
-.main-container:hover .ticket-container {
-    opacity: 1;
-    animation: bounceIn 0.6s linear;
-}
+/*.main-container:hover .ticket-container {*/
+/*    opacity: 1;*/
+/*    animation: bounceIn 0.6s linear;*/
+/*}*/
 
 @keyframes bounceIn {
     0%,
@@ -142,4 +143,7 @@ body {
 #rateEl{
   display: flex;
   justify-content: center;
+}
+#rateContainer{
+  text-align: -webkit-center;
 }

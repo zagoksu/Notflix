@@ -1,19 +1,20 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { MoviesComponent } from './components/movies/movies.component';
-import { MovieComponent } from './components/movie/movie.component';
-import { AppComponent } from './app.component';
-import { SearchComponent } from './components/search/search.component';
-import { AddComponent } from './components/add/add.component';
-import { RateMovieComponent } from './components/rate-movie/rate-movie.component';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {AppRoutingModule} from './app-routing.module';
+import {MoviesComponent} from './components/movies/movies.component';
+import {MovieComponent} from './components/movie/movie.component';
+import {AppComponent} from './app.component';
+import {SearchComponent} from './components/search/search.component';
+import {AddComponent} from './components/add/add.component';
+import {RateMovieComponent} from './components/rate-movie/rate-movie.component';
+import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatBadgeModule} from "@angular/material/badge";
 import {MatIconModule} from "@angular/material/icon";
 import {VideoPlayerComponent} from "./components/video-player/video-player.component";
+import {SafePipe} from "./services/SafePipe";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {VideoPlayerComponent} from "./components/video-player/video-player.compo
     RateMovieComponent,
     MovieComponent,
     MoviesComponent,
-    VideoPlayerComponent
+    VideoPlayerComponent,
+    SafePipe
   ],
   imports: [BrowserModule,
     AppRoutingModule,
@@ -35,4 +37,5 @@ import {VideoPlayerComponent} from "./components/video-player/video-player.compo
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+}
