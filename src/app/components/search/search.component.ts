@@ -1,7 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { IMovie } from '../../models/movie';
-import { MovieService } from '../../services/movie.service';
+import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
+import {Subscription} from 'rxjs';
+import {IMovie} from '../../models/movie';
+import {MovieService} from '../../services/movie.service';
 
 @Component({
   selector: 'app-search',
@@ -9,8 +9,10 @@ import { MovieService } from '../../services/movie.service';
   styleUrls: ['./search.component.css'],
 })
 export class SearchComponent implements OnInit, OnDestroy {
-  constructor(private movieService: MovieService) {}
+  constructor(private movieService: MovieService) {
+  }
 
+  @Output() filterEvent = new EventEmitter();
   filteredMovies: IMovie[] = [];
   private _listFilter: string = '';
   errorMessage: string = '';
@@ -19,11 +21,14 @@ export class SearchComponent implements OnInit, OnDestroy {
   get listFilter(): string {
     return this._listFilter;
   }
+
   set listFilter(value: string) {
     this._listFilter = value;
     console.log('In setter:', value);
     this.filteredMovies = this.performFilter(value);
+    this.filterEvent.emit(this.filteredMovies)
   }
+
   movies: IMovie[] = [];
 
   performFilter(filterBy: string): IMovie[] {
