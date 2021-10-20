@@ -21,6 +21,10 @@
       <app-rate-movie  [rating]="movie.rating"
                        (ratingClicked)='onRatingClicked($event)'>
       </app-rate-movie>
+      <div id="rateEl">
+        <label>Rate it!</label>
+        <input [(ngModel)]="movie.rating" >
+      </div>
     </div>
   </div>
 
