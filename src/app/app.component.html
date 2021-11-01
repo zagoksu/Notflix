@@ -32,25 +32,28 @@
         </a>
         <ul>
           <li class="active"><a routerLink="">Home</a></li>
-          <li><a routerLink="">TV Shows</a></li>
-          <li><a routerLink="movies">Movies</a></li>
-          <li><a routerLink="#">Genres</a></li>
-          <li><a routerLink="#">My List</a></li>
+          <li><a (click)="goToPage('movies')">Movies</a></li>
+          <li><a><app-modal (loginEvent)="loginHandler($event)" ></app-modal></a></li>
+          <li *ngIf="isLogin"><a>Add Movie</a></li>
         </ul>
       </div>
 
       <div class="header__right">
         <ul>
 
-          <li><a href="#"><app-search (filterEvent)="performedFilter($event)"></app-search><mat-icon>search</mat-icon></a></li>
+          <li><a href="#">
+            <app-search (filterEvent)="performedFilter($event)"></app-search>
+            <mat-icon>search</mat-icon>
+          </a></li>
           <li><a href="#">Children</a></li>
-          <li><a href="#"><mat-icon>card_giftcard</mat-icon></a></li>
-          <li><a href="#"><mat-icon>notifications</mat-icon></a></li>
-          <li>
+          <li><a href="#">
+            <mat-icon>card_giftcard</mat-icon>
+          </a></li>
+          <li><a href="#">
+            <mat-icon>notifications</mat-icon>
+          </a></li>
 
-            <img src="https://occ-0-4345-3647.1.nflxso.net/dnm/api/v6/Z-WHgqd_TeJxSuha8aZ5WpyLcX8/AAAABRGTK96GBeqNw5zzYXnoa8oVjSjhuk7SuseuKTmgEKwpcCB59994UWb6wd7d1WONZOuzJwbLNpzG5Okfo4rSDLg.png?r=ee6"
-                 alt="avatar">
-          </li> -->
+          -->
         </ul>
       </div>
     </div>  <!--HEADER MAIN ENDS HERE-->
@@ -61,9 +64,10 @@
 
   </div>
 
+<div *ngIf="showMovies">
+  <app-movies [movies]="filteredMovies" (movieIdEvent)="sendMovieId($event)"></app-movies>
+  <app-video-player *ngIf="movieId!==0" [movieId]="movieId"></app-video-player>
+</div>
 
-<app-movies [movies]="filteredMovies" (movieIdEvent)="sendMovieId($event)"></app-movies>
-<app-video-player *ngIf="movieId!==0" [movieId]="movieId"></app-video-player>
-
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>
