@@ -10,12 +10,18 @@ export class AppComponent {
   filteredMovies: IMovie[] = [];
   movieId: number = 0;
 
+ lAddMovies:boolean = false;
+
   performedFilter(value: IMovie[]) {
     this.filteredMovies = value;
   }
 
   sendMovieId(value: number) {
     this.movieId = value;
+  }
+  OnAddMovies(){
+    console.log('hi...')
+    this.lAddMovies = true;
   }
 
   title = 'Notflix';
