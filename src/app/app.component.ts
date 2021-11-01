@@ -16,12 +16,18 @@ export class AppComponent {
   constructor(private router: Router) {
   }
 
+ lAddMovies:boolean = false;
+
   performedFilter(value: IMovie[]) {
     this.filteredMovies = value;
   }
 
   sendMovieId(value: number) {
     this.movieId = value;
+  }
+  OnAddMovies(){
+    console.log('hi...')
+    this.lAddMovies = true;
   }
 
   title = 'Notflix';

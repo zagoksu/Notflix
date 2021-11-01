@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="!lAddMovies">
   <div class="header">
     <!--BANNER AREA-->
     <div class="header__banner"
@@ -34,13 +34,12 @@
           <li class="active"><a routerLink="">Home</a></li>
           <li><a (click)="goToPage('movies')">Movies</a></li>
           <li><a><app-modal (loginEvent)="loginHandler($event)" ></app-modal></a></li>
-          <li *ngIf="isLogin"><a>Add Movie</a></li>
+          <li *ngIf="isLogin"><a (click)="OnAddMovies()" routerLink="">Add Movie</a></li>
         </ul>
       </div>
 
       <div class="header__right">
         <ul>
-
           <li><a href="#">
             <app-search (filterEvent)="performedFilter($event)"></app-search>
             <mat-icon>search</mat-icon>
@@ -52,7 +51,6 @@
           <li><a href="#">
             <mat-icon>notifications</mat-icon>
           </a></li>
-
           -->
         </ul>
       </div>
@@ -61,7 +59,6 @@
   </div>
 
   <div class="body" style="margin-top: 20rem;">
-
   </div>
 
 <div *ngIf="showMovies">
@@ -71,3 +68,5 @@
 
   <router-outlet></router-outlet>
 </div>
+
+<app-add *ngIf="lAddMovies"></app-add>
