@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="!lAddMovies">
   <div class="header">
     <!--BANNER AREA-->
     <div class="header__banner"
@@ -36,6 +36,7 @@
           <li><a routerLink="movies">Movies</a></li>
           <li><a routerLink="#">Genres</a></li>
           <li><a routerLink="#">My List</a></li>
+          <li><a (click)="OnAddMovies()" routerLink="">Add Movies</a></li>
         </ul>
       </div>
 
@@ -58,7 +59,6 @@
   </div>
 
   <div class="body" style="margin-top: 20rem;">
-
   </div>
 
 
@@ -67,3 +67,5 @@
 
 <router-outlet></router-outlet>
 </div>
+
+<app-add *ngIf="lAddMovies"></app-add>
