@@ -8,7 +8,8 @@
     <p class="card-text">{{movie.genre}}</p>
     <p class="card-text">{{movie.description}}</p>
     <a href="{{movie.imageUrl}}" class="btn btn-outline-danger">Go poster</a>
-    <div id="rateContainer">
+    <div id="rateContainer" class="text-warning">
+      <app-rating></app-rating>
       <app-rate-movie [rating]="movie.rating"
                       (ratingClicked)='onRatingClicked($event)'>
       </app-rate-movie>

@@ -15,6 +15,12 @@ import {MatBadgeModule} from "@angular/material/badge";
 import {MatIconModule} from "@angular/material/icon";
 import {VideoPlayerComponent} from "./components/video-player/video-player.component";
 import {SafePipe} from "./services/SafePipe";
+
+import {LoginComponent} from './components/login/login.component';
+import {NgbAlertModule, NgbModule, NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
+import {ModalComponent} from "./components/modal/modal.component";
+import {NgbdRatingConfig} from './components/rating/rating.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +30,10 @@ import {SafePipe} from "./services/SafePipe";
     MovieComponent,
     MoviesComponent,
     VideoPlayerComponent,
-    SafePipe
+    SafePipe,
+    LoginComponent,
+    ModalComponent,
+    NgbdRatingConfig
   ],
   imports: [BrowserModule,
     AppRoutingModule,
@@ -33,7 +42,10 @@ import {SafePipe} from "./services/SafePipe";
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatIconModule,
-    MatBadgeModule],
+    MatBadgeModule,
+    NgbModule,
+    NgbPaginationModule,
+    NgbAlertModule],
   providers: [],
   bootstrap: [AppComponent],
 })
