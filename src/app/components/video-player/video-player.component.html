@@ -7,17 +7,17 @@
     <h5 class="card-title">{{movie.name}}</h5>
     <p class="card-text">{{movie.genre}}</p>
     <p class="card-text">{{movie.description}}</p>
-    <a href="{{movie.imageUrl}}" class="btn btn-outline-danger">Go poster</a>
     <div id="rateContainer" class="text-warning">
       <app-rating [currentRate]="movie.rating"
-                  (ratingClicked)='onRatingClicked($event)'></app-rating>
-      <app-rate-movie [rating]="movie.rating"
-                      (ratingClicked)='onRatingClicked($event)'>
-      </app-rate-movie>
-      <div id="rateEl">
-        <input placeholder="Rate it!" type="text" class="form-control" [(ngModel)]="rating">
-        <button class="btn btn-outline-danger" (click)="rateMovie()">Submit</button>
-      </div>
+                   (click)="rateMovie()"></app-rating>
+      <a href="{{movie.imageUrl}}" class="btn btn-outline-danger">Go poster</a>
+      <!--      <app-rate-movie [rating]="movie.rating"-->
+      <!--                      (ratingClicked)='onRatingClicked($event)'>-->
+      <!--      </app-rate-movie>-->
+      <!--      <div id="rateEl">-->
+      <!--        <input placeholder="Rate it!" type="text" class="form-control" [(ngModel)]="rating">-->
+      <!--        <button class="btn btn-outline-danger" (click)="rateMovie()">Submit</button>-->
+      <!--      </div>-->
     </div>
   </div>
 </div>

@@ -28,6 +28,11 @@ export class MovieService {
 
   }
 
+  updateRate(movie: IMovie) {
+    this.http.put(this.movieUrl, movie).subscribe((data) => {
+    })
+  }
+
   private handleError(err: HttpErrorResponse): Observable<never> {
     let errorMessage = '';
     if (err.error instanceof ErrorEvent) {
