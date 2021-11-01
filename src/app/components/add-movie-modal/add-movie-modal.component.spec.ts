@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NgbdRatingConfig } from './rating.component';
+import { AddMovieModalComponent } from './add-movie-modal.component';
 
-describe('RatingComponent', () => {
-  let component: NgbdRatingConfig;
-  let fixture: ComponentFixture<NgbdRatingConfig>;
+describe('AddMovieModalComponent', () => {
+  let component: AddMovieModalComponent;
+  let fixture: ComponentFixture<AddMovieModalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NgbdRatingConfig ]
+      declarations: [ AddMovieModalComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NgbdRatingConfig);
+    fixture = TestBed.createComponent(AddMovieModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

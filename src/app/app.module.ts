@@ -20,6 +20,9 @@ import {LoginComponent} from './components/login/login.component';
 import {NgbAlertModule, NgbModule, NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
 import {ModalComponent} from "./components/modal/modal.component";
 import {NgbdRatingConfig} from './components/rating/rating.component';
+import { AddMovieComponent } from './components/add-movie/add-movie.component';
+import { AddMovieModalComponent } from './components/add-movie-modal/add-movie-modal.component';
+import { MovieDetailModalComponent } from './components/movie-detail-modal/movie-detail-modal.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import {NgbdRatingConfig} from './components/rating/rating.component';
     SafePipe,
     LoginComponent,
     ModalComponent,
-    NgbdRatingConfig
+    NgbdRatingConfig,
+    AddMovieComponent,
+    AddMovieModalComponent,
+    MovieDetailModalComponent
   ],
   imports: [BrowserModule,
     AppRoutingModule,

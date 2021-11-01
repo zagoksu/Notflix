@@ -1,0 +1,83 @@
+<form (ngSubmit)="onSubmit()" #userForm="ngForm" *ngIf="!isSuccess">
+  <!--  Name field-->
+  <div class="form-group">
+    <label for="name">Movie Name</label>
+    <input type="text" class="form-control" id="name" aria-describedby="nameHelp"
+           placeholder="Enter movie name" required
+           [(ngModel)]="model.name" name="name"
+           #name="ngModel">
+    <small id="nameHelp" class="form-text text-muted">Name is important for a movie</small>
+    <div [hidden]="name.valid || name.pristine"
+         class="alert alert-danger">
+      name is required
+    </div>
+  </div>
+
+  <!-- Description field-->
+  <div class="form-group">
+    <label for="description">Description</label>
+    <input type="text" class="form-control" id="description"
+           placeholder="Enter movie description" required
+           [(ngModel)]="model.description" name="description"
+           #description="ngModel">
+    <div [hidden]="description.valid || description.pristine"
+         class="alert alert-danger">
+      Description is required
+    </div>
+  </div>
+
+  <!-- Genre Field -->
+  <div class="form-group">
+    <label for="genre">Genre</label>
+    <input type="text" class="form-control" id="genre"
+           placeholder="Enter movie genre" required
+           [(ngModel)]="model.genre" name="genre"
+           #genre="ngModel">
+    <div [hidden]="genre.valid || genre.pristine"
+         class="alert alert-danger">
+      Genre is required
+    </div>
+  </div>
+
+  <!--  imageUrl field -->
+  <div class="form-group">
+    <label for="imageUrl">Image Url</label>
+    <input type="text" class="form-control" id="imageUrl"
+           placeholder="Enter movie Image Url" required
+           [(ngModel)]="model.imageUrl" name="imageUrl"
+           #imageUrl="ngModel">
+    <div [hidden]="imageUrl.valid || imageUrl.pristine"
+         class="alert alert-danger">
+      imageUrl is required
+    </div>
+  </div>
+
+  <!-- VideoUrl -->
+  <div class="form-group">
+    <label for="videoUrl">Video Url</label>
+    <input type="text" class="form-control" id="videoUrl" placeholder="Enter movie Video Url" required
+           [(ngModel)]="model.videoUrl" name="videoUrl"
+           #videoUrl="ngModel">
+    <div [hidden]="videoUrl.valid || videoUrl.pristine"
+         class="alert alert-danger">
+      Video Url is required
+    </div>
+    <!--    Rating field-->
+    <div class="form-group">
+      <label for="rating">Rating</label>
+      <input type="number" class="form-control" id="rating"
+             placeholder="Enter movie Rating" required
+             [(ngModel)]="model.rating" name="rating"
+             #rating="ngModel">
+      <div [hidden]="rating.valid || rating.pristine"
+           class="alert alert-danger">
+        Rating is required
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-danger">Save</button>
+</form>
+<div *ngIf="isSuccess">
+  <img src="https://media2.giphy.com/media/o75ajIFH0QnQC3nCeD/giphy.gif">
+  <h1>Saved Movie</h1>
+</div>

@@ -1,6 +1,6 @@
 <div id="detailContainer" class="card">
+
   <iframe class="card-img-top" width="560" height="315" [src]="movie.videoUrl | safe" title="YouTube video player"
-          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen></iframe>
   <div class="card-body">
@@ -9,7 +9,8 @@
     <p class="card-text">{{movie.description}}</p>
     <a href="{{movie.imageUrl}}" class="btn btn-outline-danger">Go poster</a>
     <div id="rateContainer" class="text-warning">
-      <app-rating></app-rating>
+      <app-rating [currentRate]="movie.rating"
+                  (ratingClicked)='onRatingClicked($event)'></app-rating>
       <app-rate-movie [rating]="movie.rating"
                       (ratingClicked)='onRatingClicked($event)'>
       </app-rate-movie>
