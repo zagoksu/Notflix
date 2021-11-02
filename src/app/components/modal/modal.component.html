@@ -17,7 +17,8 @@
   </div>
 </ng-template>
 
-<a (click)="open(content)">{{isLogin ? 'Sign-Out' : 'Sign-In'}}</a>
+<a (click)="open(content)" *ngIf="!isLogin">Sign-In</a>
+<a (click)="signOutHandler()" *ngIf="isLogin">Sign-Out</a>
 
 
 

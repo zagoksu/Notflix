@@ -33,9 +33,13 @@
         <ul>
           <li class="active"><a routerLink="">Home</a></li>
           <li><a (click)="goToPage('movies')">Movies</a></li>
-          <li><a><app-modal (loginEvent)="loginHandler($event)" ></app-modal></a></li>
-<!--          <li *ngIf="isLogin"><a (click)="OnAddMovies()" routerLink="">Add Movie</a></li>-->
-          <li *ngIf="isLogin"><a><app-add-movie-modal></app-add-movie-modal></a></li>
+          <li><a>
+            <app-modal (loginEvent)="loginHandler($event)"></app-modal>
+          </a></li>
+          <!--          <li *ngIf="isLogin"><a (click)="OnAddMovies()" routerLink="">Add Movie</a></li>-->
+          <li *ngIf="isLogin"><a>
+            <app-add-movie-modal></app-add-movie-modal>
+          </a></li>
         </ul>
       </div>
 
@@ -45,7 +49,7 @@
             <app-search (filterEvent)="performedFilter($event)"></app-search>
             <mat-icon>search</mat-icon>
           </a></li>
-          <li><a href="#">Children</a></li>
+          <li><a href="#">{{isLogin ? "Ibrahim" : "CHILDREN"}}</a></li>
           <li><a href="#">
             <mat-icon>card_giftcard</mat-icon>
           </a></li>
@@ -62,10 +66,10 @@
   <div class="body" style="margin-top: 20rem;">
   </div>
 
-<div *ngIf="showMovies">
-  <app-movies [movies]="filteredMovies" (movieIdEvent)="sendMovieId($event)"></app-movies>
-  <app-video-player *ngIf="movieId!==0" [movieId]="movieId"></app-video-player>
-</div>
+  <div *ngIf="showMovies">
+    <app-movies [movies]="filteredMovies" (movieIdEvent)="sendMovieId($event)"></app-movies>
+    <app-video-player *ngIf="movieId!==0" [movieId]="movieId"></app-video-player>
+  </div>
 
   <router-outlet></router-outlet>
 </div>

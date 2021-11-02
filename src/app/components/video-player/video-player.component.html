@@ -9,7 +9,7 @@
     <p class="card-text">{{movie.description}}</p>
     <div id="rateContainer" class="text-warning">
       <app-rating [currentRate]="movie.rating"
-                   (click)="rateMovie()"></app-rating>
+                  (ratingClicked)="onRatingClicked($event)"></app-rating>
       <a href="{{movie.imageUrl}}" class="btn btn-outline-danger">Go poster</a>
       <!--      <app-rate-movie [rating]="movie.rating"-->
       <!--                      (ratingClicked)='onRatingClicked($event)'>-->

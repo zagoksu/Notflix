@@ -36,4 +36,10 @@ export class ModalComponent {
     this.isLogin = true;
     this.loginEvent.emit(this.isLogin)
   }
+
+  signOutHandler() {
+    this.isLogin=false;
+    this.loginEvent.emit(this.isLogin)
+    window.location.reload();
+  }
 }
