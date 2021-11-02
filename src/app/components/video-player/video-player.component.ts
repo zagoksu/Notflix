@@ -16,20 +16,21 @@ export class VideoPlayerComponent implements OnInit, OnChanges, OnDestroy {
     "genre": "Action",
     "rating": 3,
     "imageUrl": "https://m.media-amazon.com/images/M/MV5BMTU2NjA1ODgzMF5BMl5BanBnXkFtZTgwMTM2MTI4MjE@._V1_.jpg",
-    "videoUrl": "https://www.youtube.com/watch?v=2AUmvWm5ZDQ"
+    "videoUrl": "https://www.youtube.com/embed/2AUmvWm5ZDQ"
   };
   @Input() movieId: number = 0;
   movies: IMovie[] = [];
-  rating:number=0;
+  rating: number = 0;
   latestMovie?: null | IMovie;
   private movieSubscription?: Subscription;
 
   constructor(private movieService: MovieService) {
   }
 
-  onRatingClicked(message: string): void {
-    console.log('Movie : ' + message);
-    console.log(this.movie.rating)
+  async onRatingClicked(value: number): Promise<void> {
+    await this.rateMovie(value)
+    await this.movieService.updateRate(this.movie)
+    await console.log(this.movie.rating)
   }
 
   ngOnInit(): void {
@@ -64,7 +65,9 @@ export class VideoPlayerComponent implements OnInit, OnChanges, OnDestroy {
     console.log("find: " + findedData)
     return findedData;
   }
-  rateMovie(){
-    this.movie.rating=this.rating;
+
+  rateMovie(value: number) {
+    this.movie.rating = value;
+
   }
 }

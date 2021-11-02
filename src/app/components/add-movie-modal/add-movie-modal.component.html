@@ -1,6 +1,6 @@
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Login</h4>
+    <h4 class="modal-title" id="modal-basic-title">Add Movie</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -8,17 +8,15 @@
   <div class="modal-body">
     <form>
       <div class="form-group">
-        <app-login (loginEvent)="loginHandler($event)"></app-login>
+
+        <app-add-movie></app-add-movie>
       </div>
     </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Go Notflix</button>
+    <button type="button" class="btn btn-outline-danger" (click)="modal.close('Save click')">Go Mainpage</button>
   </div>
 </ng-template>
 
-<a (click)="open(content)" *ngIf="!isLogin">Sign-In</a>
-<a (click)="signOutHandler()" *ngIf="isLogin">Sign-Out</a>
-
-
+<a (click)="open(content)">Add Movie</a>
 

@@ -1,23 +1,25 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {ModalDismissReasons, NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {IMovie} from "../../models/movie";
+import {MovieModel} from "../../models/movieModel";
 
 @Component({
-  selector: 'app-modal',
-  templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.css']
+  selector: 'app-movie-detail-modal',
+  templateUrl: './movie-detail-modal.component.html',
+  styleUrls: ['./movie-detail-modal.component.css']
 })
-export class ModalComponent {
-  @Output() loginEvent = new EventEmitter();
+export class MovieDetailModalComponent  {
+  @Input() movieId: number = 0;
+  @Input() model: IMovie | undefined;
   closeResult = '';
-  isLogin: boolean = false;
 
-  constructor(private modalService: NgbModal) {
-  }
+  constructor(private modalService: NgbModal) {}
 
   open(content: any) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
+      console.log(this.movieId)
+    }, (reason: any) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
@@ -32,14 +34,4 @@ export class ModalComponent {
     }
   }
 
-  loginHandler($event: any) {
-    this.isLogin = true;
-    this.loginEvent.emit(this.isLogin)
-  }
-
-  signOutHandler() {
-    this.isLogin=false;
-    this.loginEvent.emit(this.isLogin)
-    window.location.reload();
-  }
 }

@@ -1,15 +1,14 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ModalDismissReasons, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
-  selector: 'app-modal',
-  templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.css']
+  selector: 'app-add-movie-modal',
+  templateUrl: './add-movie-modal.component.html',
+  styleUrls: ['./add-movie-modal.component.css']
 })
-export class ModalComponent {
-  @Output() loginEvent = new EventEmitter();
+export class AddMovieModalComponent {
+
   closeResult = '';
-  isLogin: boolean = false;
 
   constructor(private modalService: NgbModal) {
   }
@@ -32,14 +31,4 @@ export class ModalComponent {
     }
   }
 
-  loginHandler($event: any) {
-    this.isLogin = true;
-    this.loginEvent.emit(this.isLogin)
-  }
-
-  signOutHandler() {
-    this.isLogin=false;
-    this.loginEvent.emit(this.isLogin)
-    window.location.reload();
-  }
 }
